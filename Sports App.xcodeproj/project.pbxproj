@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E573597262E23CB007FED38 /* TeamsDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573596262E23CB007FED38 /* TeamsDetailsTableViewController.swift */; };
 		9E554567262DCEBF00B0B9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E554566262DCEBF00B0B9C1 /* AppDelegate.swift */; };
 		9E554569262DCEBF00B0B9C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E554568262DCEBF00B0B9C1 /* SceneDelegate.swift */; };
 		9E55456B262DCEBF00B0B9C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55456A262DCEBF00B0B9C1 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E573596262E23CB007FED38 /* TeamsDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDetailsTableViewController.swift; sourceTree = "<group>"; };
 		9E554563262DCEBF00B0B9C1 /* Sports App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sports App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E554566262DCEBF00B0B9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E554568262DCEBF00B0B9C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E573595262E2398007FED38 /* TeamsDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E573596262E23CB007FED38 /* TeamsDetailsTableViewController.swift */,
+			);
+			path = TeamsDetailsViewController;
+			sourceTree = "<group>";
+		};
 		9E55455A262DCEBF00B0B9C1 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		9E554599262DD36700B0B9C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E573595262E2398007FED38 /* TeamsDetailsViewController */,
 				9E5F6B25262DF9E3004EF815 /* WebViewController */,
 				9E5F6B22262DF8EA004EF815 /* LeagueDetailsViewController */,
 				9E5F6B1F262DF65B004EF815 /* LeaguesViewController */,
@@ -332,6 +343,7 @@
 				9E5F6B21262DF6D7004EF815 /* LeaguesViewController.swift in Sources */,
 				9E5F6B24262DF924004EF815 /* LeagueDetailsViewController.swift in Sources */,
 				9E554571262DCEBF00B0B9C1 /* Sports_App.xcdatamodeld in Sources */,
+				1E573597262E23CB007FED38 /* TeamsDetailsTableViewController.swift in Sources */,
 				9E55459F262DD44700B0B9C1 /* FavoriteViewController.swift in Sources */,
 				9E554569262DCEBF00B0B9C1 /* SceneDelegate.swift in Sources */,
 			);
