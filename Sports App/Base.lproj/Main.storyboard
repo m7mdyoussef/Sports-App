@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilteredLeagueViewTableViewCell" rowHeight="111" id="zRK-jb-17O">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilteredLeagueViewTableViewCell" rowHeight="111" id="zRK-jb-17O" customClass="FilteredLeagueViewTableViewCell" customModule="Sports_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="382" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zRK-jb-17O" id="Tio-6i-Fi2">
@@ -58,6 +58,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="filteredYoutubeImageClicked:" destination="zRK-jb-17O" eventType="touchUpInside" id="vlt-B6-WZ4"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="league name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmM-7Z-mYH">
                                                     <rect key="frame" x="131" y="45" width="103.5" height="21"/>
@@ -81,6 +84,11 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="filteredLeagueImage" destination="IxB-t0-8jb" id="q4f-cv-Yuz"/>
+                                            <outlet property="filteredLeagueName" destination="xmM-7Z-mYH" id="V2o-0l-XUA"/>
+                                            <outlet property="filteredYoutubeImage" destination="Fij-Fa-CEi" id="lLq-la-cLr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -130,7 +138,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="UpcomingCollectionViewCell" reuseIdentifier="UpcomingCollectionViewCell" id="gWg-wd-J9U">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="UpcomingCollectionViewCell" reuseIdentifier="UpcomingCollectionViewCell" id="gWg-wd-J9U" customClass="UpcomingCollectionViewCell" customModule="Sports_App" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="3" width="380" height="160"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aoN-pp-Wrp">
@@ -216,13 +224,20 @@
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" red="0.87450980392156863" green="0.87058823529411766" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <size key="customSize" width="380" height="160"/>
+                                                            <connections>
+                                                                <outlet property="dateLabel" destination="tFq-y1-hY5" id="CIV-UE-Qup"/>
+                                                                <outlet property="firstTeamImage" destination="tg4-xB-Wcg" id="xCP-EQ-43S"/>
+                                                                <outlet property="firstTeamName" destination="xxS-sa-3fR" id="YmF-Vj-M45"/>
+                                                                <outlet property="secondTeamImage" destination="D1Y-RD-FF3" id="CO0-cj-k3d"/>
+                                                                <outlet property="secondTeamName" destination="QtJ-22-q8n" id="7Wr-4I-KSa"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LastEventTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastEventTableViewCell" rowHeight="455" id="JyO-3Y-EoS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LastEventTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastEventTableViewCell" rowHeight="455" id="JyO-3Y-EoS" customClass="LastEventTableViewCell" customModule="Sports_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="221.5" width="382" height="455"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JyO-3Y-EoS" id="Rfp-Gb-6hw">
@@ -352,6 +367,15 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <outlet property="dateLabel" destination="EL9-iW-ff1" id="hxB-de-Ad3"/>
+                                                                <outlet property="firstTeamImage" destination="dbH-FR-mpD" id="4ZG-aA-36D"/>
+                                                                <outlet property="firstTeamName" destination="YLp-gN-TYf" id="JAV-ei-oni"/>
+                                                                <outlet property="firstTeamScore" destination="Em2-l8-RFD" id="jtp-5E-1AT"/>
+                                                                <outlet property="secondTeamImage" destination="A54-eo-X2U" id="unH-sf-6uz"/>
+                                                                <outlet property="secondTeamName" destination="gAh-mq-tyB" id="Mp2-R0-fSn"/>
+                                                                <outlet property="secondTeamScore" destination="g7r-4E-TwB" id="NjS-0B-xFt"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
@@ -376,7 +400,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamCollectionViewCell" id="OQA-dy-57g">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamCollectionViewCell" id="OQA-dy-57g" customClass="TeamCollectionViewCell" customModule="Sports_App" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="3.5" width="128" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zbv-5z-AbU">
@@ -397,6 +421,9 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="128" height="128"/>
+                                                            <connections>
+                                                                <outlet property="teamImage" destination="bIF-wt-Rxg" id="tYW-Ya-zW5"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -444,7 +471,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueViewTableViewCell" rowHeight="111" id="wCI-kn-0sO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueViewTableViewCell" rowHeight="111" id="wCI-kn-0sO" customClass="LeagueViewTableViewCell" customModule="Sports_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="382" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wCI-kn-0sO" id="h9g-J7-5dh">
@@ -465,6 +492,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="hmI-lH-bRS"/>
                                                     </constraints>
                                                     <state key="normal" image="youtube"/>
+                                                    <connections>
+                                                        <action selector="youtubeImageClicked:" destination="wCI-kn-0sO" eventType="touchUpInside" id="oE8-bx-HwA"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="league name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdT-vZ-IPo">
                                                     <rect key="frame" x="131" y="45" width="103.5" height="21"/>
@@ -483,6 +513,11 @@
                                                 <constraint firstItem="xOG-8V-9B7" firstAttribute="centerY" secondItem="h9g-J7-5dh" secondAttribute="centerY" id="jnp-jH-X6g"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leagueImage" destination="xOG-8V-9B7" id="pxL-yN-e5B"/>
+                                            <outlet property="leagueName" destination="kdT-vZ-IPo" id="gbl-ru-ZAm"/>
+                                            <outlet property="youtubeImage" destination="54z-tB-3Dn" id="gdU-vk-iAf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -521,7 +556,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SportCollectionViewCell" id="ynU-FB-bAm">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SportCollectionViewCell" id="ynU-FB-bAm" customClass="SportCollectionViewCell" customModule="Sports_App" customModuleProvider="target">
                                         <rect key="frame" x="-1" y="0.0" width="352" height="572"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2NB-i5-Rkn">
@@ -550,6 +585,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="352" height="572"/>
+                                        <connections>
+                                            <outlet property="sportImage" destination="kG6-B2-J8f" id="2Dg-ld-aeJ"/>
+                                            <outlet property="sportName" destination="0XN-7g-Krj" id="0Xw-mL-EUW"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -633,11 +672,11 @@
                         <sections>
                             <tableViewSection id="V0Z-bx-O36">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="687" id="5zE-d0-4af">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="687"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="691" id="5zE-d0-4af">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="691"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5zE-d0-4af" id="khy-Th-MFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="691"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-pO-V4G">
@@ -707,7 +746,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsG-6n-m4x">
-                                                    <rect key="frame" x="20" y="626" width="374" height="50"/>
+                                                    <rect key="frame" x="20" y="630" width="374" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqY-c6-6h3">
                                                             <rect key="frame" x="16" y="13" width="79.5" height="24"/>
@@ -757,10 +796,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-7D-Rde">
-                                                    <rect key="frame" x="36" y="461.5" width="342" height="164.5"/>
+                                                    <rect key="frame" x="36" y="461.5" width="342" height="168.5"/>
                                                     <subviews>
                                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TI3-HJ-LSa">
-                                                            <rect key="frame" x="0.0" y="25" width="342" height="139.5"/>
+                                                            <rect key="frame" x="0.0" y="25" width="342" height="143.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PE-Od-WzM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="342" height="310.5"/>
@@ -898,8 +937,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fUZ-iz-p3q"/>
-        <segue reference="jsM-Yy-2Q7"/>
+        <segue reference="lhy-bk-PFA"/>
+        <segue reference="qv7-ut-pna"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="facebook" width="128" height="128"/>
