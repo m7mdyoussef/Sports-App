@@ -11,6 +11,7 @@ import Foundation
 protocol ILeaguesPresenter {
     init(view : ILeaguesView, sportName: String?)
     var leagues : [League]?{get set}
+    var error : String?{get set}
     func getLeagues()
 }
 
@@ -18,4 +19,5 @@ protocol ILeaguesView : class{
     func reloadLeague()
     func startAnimating()
     func stopAnimating()
+    func errorMessage()
 }

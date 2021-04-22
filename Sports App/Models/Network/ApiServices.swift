@@ -26,8 +26,11 @@ class ApiServices{
             do{
                 let decoder = JSONDecoder()
                 let data = try decoder.decode(T.self, from: responseData)
+            
                 completion(data, nil)
+
             }catch{
+                print("onFailure")
                 completion(nil, error)
             }
         }

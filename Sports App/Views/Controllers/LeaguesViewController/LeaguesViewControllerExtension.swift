@@ -10,7 +10,6 @@ import Foundation
 
 extension LeaguesViewController: ILeaguesView{
 
-    
 
     func reloadLeague() {
         print("reload Data")
@@ -29,6 +28,14 @@ extension LeaguesViewController: ILeaguesView{
     
     func stopAnimating() {
         activityIndicator.stopAnimating()
+    }
+    
+    func errorMessage() {
+        print("errorMessage")
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            self.showErreorMessage()
+        })
+        
     }
     
     

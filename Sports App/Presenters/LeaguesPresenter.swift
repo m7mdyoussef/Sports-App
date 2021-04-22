@@ -19,6 +19,13 @@ class LeaguesPresenter: ILeaguesPresenter {
         }
     }
     
+    var error: String?{
+        didSet{
+            self.view?.errorMessage()
+            view?.stopAnimating()
+        }
+    }
+    
     weak var view : ILeaguesView?
     var sportName : String?
     
@@ -30,13 +37,19 @@ class LeaguesPresenter: ILeaguesPresenter {
     func getLeagues() {
         view?.startAnimating()
         
-        ApiServices.instance.getResponses(url: URLs.allLeagues.rawValue, id: sportName ?? "Soccer") { (data: Leagues?, error) in
+        ApiServices.instance.getResponses(url: URLs.allLeagues.rawValue, id: sportName ?? "Soccer") { (data: Leagues?, errorMessage) in
                     
-            guard let data = data, error == nil else{
+            guard let data = data, errorMessage == nil else{
+                print("error")
+                self.error = errorMessage?.localizedDescription
                 return
             }
             
-            self.leagues = (data.leagues)!
+            if data.leagues != nil{
+                self.leagues = data.leagues
+            }
+
+            
     }
     
     

@@ -75,6 +75,18 @@ class LeaguesViewController: UIViewController, UITableViewDelegate ,UITableViewD
         }
     }
 
+    func showErreorMessage() {
+        
+        let alert = UIAlertController(title: "Error", message: leaguePresenter?.error, preferredStyle: .alert)
+        
+        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            
+            
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
 }
 
