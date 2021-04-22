@@ -14,10 +14,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          let  numberOfItems = sportsPresenter?.sports?.count ?? 0
-                print("Items in section: \(sportsPresenter?.sports?.count ?? 0)")
         
+        var numberOfItems = 0
+        if reachability.connection == .unavailable{
+            numberOfItems = 1
+        }else{
+            numberOfItems = sportsPresenter?.sports?.count ?? 0
+        }
         return numberOfItems
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,14 +34,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.sportImage.layer.cornerRadius = 15
 
+        if reachability.connection == .unavailable{
+            DesignedBGView.isHidden = true
+            
+            cell.sportImage.image = UIImage(named: "noInternet")
+            cell.sportImage.contentMode = .scaleToFill
+            cell.sportName.text = "No Internet Connection!"
+            cell.sportName.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+//            cell.sportNameLabel.font = UIFont(name: "", size: collectionView.frame.width*0.07)
+        }else{
+            cell.sportImage.sd_setImage(with: URL(string: sportsPresenter?.sports?[indexPath.row].strSportThumb ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
+            cell.sportName.text = sportsPresenter?.sports?[indexPath.row].strSport
+        }
 
-        
-        cell.sportImage.sd_setImage(with: URL(string: sportsPresenter?.sports?[indexPath.row].strSportThumb ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
-
-        cell.sportName.text = sportsPresenter?.sports?[indexPath.row].strSport
-
-        
-        
         return cell
         
     }
@@ -41,15 +54,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
           
-            return CGSize(width: (collectionView.frame.width/2.1), height: collectionView.frame.width/1.85)
-
+            if reachability.connection == .unavailable{
+                return CGSize(width: (collectionView.frame.width), height: collectionView.frame.height)
+            }else{
+                return CGSize(width: (collectionView.frame.width/2.1), height: collectionView.frame.width/1.85)
+            }
         }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          selectedSport = indexPath.row
          
+        if reachability.connection == .cellular || reachability.connection == .wifi{
+                  performSegue(withIdentifier: "leagues", sender: self)
+              }
         
-             performSegue(withIdentifier: "leagues", sender: self)
          
      }
     
@@ -61,8 +79,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+    
     
 }
