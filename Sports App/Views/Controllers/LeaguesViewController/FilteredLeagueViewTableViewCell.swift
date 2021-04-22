@@ -15,7 +15,7 @@ class FilteredLeagueViewTableViewCell: UITableViewCell {
     @IBOutlet weak var filteredYoutubeImage: UIButton!
     @IBOutlet weak var filteredLeagueName: UILabel!
     
-   
+    var yotubeButton : (() -> Void)? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +29,8 @@ class FilteredLeagueViewTableViewCell: UITableViewCell {
     }
 
     @IBAction func filteredYoutubeImageClicked(_ sender: Any) {
-     
+        if let filteredYoutubeButtonClicked = self.yotubeButton {
+            filteredYoutubeButtonClicked()
+        }
     }
 }

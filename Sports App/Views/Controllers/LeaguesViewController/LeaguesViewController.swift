@@ -13,6 +13,7 @@ class LeaguesViewController: UIViewController, UITableViewDelegate ,UITableViewD
     var sport : String?
     var leaguePresenter : LeaguesPresenter?
     var activityIndicator: UIActivityIndicatorView!
+    var selectedLeagues : Int?
     
     @IBOutlet weak var leaguesTableView: UITableView!
     
@@ -49,6 +50,12 @@ class LeaguesViewController: UIViewController, UITableViewDelegate ,UITableViewD
             cell.filteredYoutubeImage.isHidden = false
         }
        
+        cell.yotubeButton = {
+            print("youtube button index\(indexPath.row)")
+            self.selectedLeagues = indexPath.row
+            self.performSegue(withIdentifier: "webView", sender: self)
+            
+        }
         return cell
     }
     
@@ -59,6 +66,13 @@ class LeaguesViewController: UIViewController, UITableViewDelegate ,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row index \(indexPath.row)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? WebViewController{
+            
+            destination.leaguesWebURl =  self.leaguePresenter?.leagues?[selectedLeagues!].youtube ?? ""
+        }
     }
 
     

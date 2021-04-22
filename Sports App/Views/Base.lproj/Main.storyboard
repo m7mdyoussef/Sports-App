@@ -668,6 +668,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="qg4-k8-8iX"/>
+                    <connections>
+                        <outlet property="webView" destination="Yyp-Br-YHK" id="UbI-G6-OTu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YG2-sA-w5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
