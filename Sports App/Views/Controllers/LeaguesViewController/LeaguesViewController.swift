@@ -66,13 +66,24 @@ class LeaguesViewController: UIViewController, UITableViewDelegate ,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row index \(indexPath.row)")
+        self.selectedLeagues = indexPath.row
+        self.performSegue(withIdentifier: "leagueDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? WebViewController{
+        if segue.identifier == "leagueDetails"{
+            if let destination = segue.destination as? LeagueDetailsViewController{
+                
+                destination.leaguesId =  self.leaguePresenter?.leagues?[selectedLeagues!].leaguesId ?? ""
+            }
             
-            destination.leaguesWebURl =  self.leaguePresenter?.leagues?[selectedLeagues!].youtube ?? ""
+        }else if segue.identifier == "webView"{
+            if let destination = segue.destination as? WebViewController{
+                
+                destination.leaguesWebURl =  self.leaguePresenter?.leagues?[selectedLeagues!].youtube ?? ""
+            }
         }
+      
     }
 
     func showErreorMessage() {

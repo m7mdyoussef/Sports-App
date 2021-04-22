@@ -453,14 +453,9 @@
                     <navigationItem key="navigationItem" id="U6O-uT-GSv">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart2" id="XMj-fE-fwb">
                             <color key="tintColor" systemColor="systemGrayColor"/>
-                            <connections>
-                                <action selector="saveToFavoriteTapped:" destination="NCz-wa-g6E" id="lHR-vw-Jrl"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="favoriteButton" destination="XMj-fE-fwb" id="Mdp-Rl-hlP"/>
-                        <outlet property="leagueDetailsTableView" destination="iLk-0z-R8s" id="fUg-W1-6vc"/>
                         <segue destination="CSe-Da-30Y" kind="show" id="SPK-BF-wB1"/>
                     </connections>
                 </viewController>
