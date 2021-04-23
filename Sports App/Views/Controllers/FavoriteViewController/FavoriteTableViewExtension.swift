@@ -35,12 +35,12 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
             }
         }
        
-//        cell.yotubeButton = {
-//            print("youtube button index\(indexPath.row)")
-//            //self.selectedLeagues = indexPath.row
-//            self.performSegue(withIdentifier: "webView", sender: self)
-//
-//        }
+        cell.yotubeButton = {
+            print("youtube button index\(indexPath.row)")
+            self.selectedLeagues = indexPath.row
+            self.performSegue(withIdentifier: "favoriteWebView", sender: self)
+
+        }
         return cell
     }
     
@@ -51,8 +51,8 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row index \(indexPath.row)")
-        //self.selectedLeagues = indexPath.row
-        self.performSegue(withIdentifier: "leagueDetails", sender: self)
+        self.selectedLeagues = indexPath.row
+        self.performSegue(withIdentifier: "favoriteLeagueDetails", sender: self)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

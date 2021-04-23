@@ -126,8 +126,8 @@
             filePath = "Sports App/Views/Controllers/FavoriteViewController/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "upadteFavorite()"
             landmarkType = "7">
          </BreakpointContent>

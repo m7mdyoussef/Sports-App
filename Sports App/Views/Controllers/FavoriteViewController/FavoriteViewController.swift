@@ -11,7 +11,7 @@ import CoreData
 
 class FavoriteViewController: UIViewController {
     
-    
+    var selectedLeagues : Int?
     @IBOutlet weak var tableView: UITableView!
     
 //    private(set) var presenter: FavoriteistPresenterInput!
@@ -39,6 +39,21 @@ class FavoriteViewController: UIViewController {
         
         //presenter.deleteObject(leaguesId: "test3")
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favoriteLeagueDetails"{
+            if let destination = segue.destination as? LeagueDetailsViewController{
+                
+                destination.leaguesId =  self.presenter.favorites[selectedLeagues!].favoriteId ?? ""
+            }
+            
+        }else if segue.identifier == "favoriteWebView"{
+            if let destination = segue.destination as? WebViewController{
+                
+                destination.leaguesWebURl =  self.presenter.favorites[selectedLeagues!].favoriteYoutubeURL ?? ""
+            }
+        }
+      
     }
     
 
