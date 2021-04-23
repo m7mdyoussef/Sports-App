@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import Reachability
 
 class FavoriteViewController: UIViewController {
     
     var selectedLeagues : Int?
     @IBOutlet weak var tableView: UITableView!
+    let reachability = try! Reachability()
     
 //    private(set) var presenter: FavoriteistPresenterInput!
 //
@@ -35,7 +37,9 @@ class FavoriteViewController: UIViewController {
         
             print("favorite view load")
             presenter.loadFavorite()
-        
+//        let league = League(leaguesId: "test1", leaguesName: "test", leaguesImage: "test", youtube:"test", sportName: "")
+//
+//        presenter.didTapInsertAction(league: league)
         
         //presenter.deleteObject(leaguesId: "test3")
         
@@ -59,6 +63,17 @@ class FavoriteViewController: UIViewController {
             }
         }
       
+    }
+    
+    func showNetworkConnectionErroe(){
+        let alert = UIAlertController(title: "Error", message: "please check your internt connection", preferredStyle: .alert)
+        
+        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            
+            
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 
