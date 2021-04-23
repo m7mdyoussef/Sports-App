@@ -31,11 +31,13 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
             cell.leagueImage.sd_setImage(with: URL(string: favorite.favoriteImage ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
             
             
-            if(favorite.favoriteYoutubeURL != ""){
+            if(favorite.favoriteYoutubeURL != "" && favorite.favoriteYoutubeURL != nil){
+                cell.youtubeImage.isHidden = false
+            }else{
                 cell.youtubeImage.isHidden = false
             }
         }
-       
+        
         cell.yotubeButton = {
             print("youtube button index\(indexPath.row)")
             self.selectedLeagues = indexPath.row

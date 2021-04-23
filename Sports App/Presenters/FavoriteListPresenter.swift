@@ -29,14 +29,7 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
     private(set) var favorites: [Favorite] = []
 
     private weak var view: FavoriteListPresenterOutput!
-   // private(set) var model: FavoriteListModelInput
     var model: FavoriteListModel
-
-//    init(view: FavoriteListPresenterOutput, model: FavoriteListModelInput) {
-//        self.view = view
-//        self.model = model
-//    }
-    
 
     required init(view: FavoriteListPresenterOutput, context: NSManagedObjectContext) {
         self.view = view
@@ -57,6 +50,7 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
         model.insertFavorite(league: league)
         model.fetchAllFavorite { [weak self] favorites in
             self?.favorites = favorites ?? []
+            
             self?.view.upadteFavorite()
         }
     }
@@ -65,15 +59,8 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
     func loadFavorite() {
         model.fetchAllFavorite { [weak self] favorite in
                    self?.favorites = favorite ?? []
-                   self?.view.upadteFavorite()
             
-                   if ((self?.favorites.count) == nil) {
-                       print("can show data")
-                       self?.view.hideEmptyListImage()
-                   }else{
-                        print("show empty image")
-                       self?.view.showEmptyListImage()
-                   }
+                   self?.view.upadteFavorite()
         }
     }
     
@@ -82,7 +69,14 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
         model.deleteObject(leagueId: leaguesId, completion: {
             [weak self] favorite in
                        self?.favorites = favorite ?? []
-                       self?.view.upadteFavorite()
+            if ((self?.favorites.count) == nil) {
+                print("can not show data")
+                self?.view.showEmptyListImage()
+            }else{
+                 print("hide empty image")
+                self?.view.hideEmptyListImage()
+            }
+            self?.view.upadteFavorite()
         })
     }
 

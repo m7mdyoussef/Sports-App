@@ -24,7 +24,7 @@ class WebViewController: UIViewController {
         if leaguesWebURl != ""{
             let url = URL(string: scheme+leaguesWebURl)!
             DispatchQueue.main.async {
-                //self.webView.load(URLRequest(url: url))
+                self.webView.load(URLRequest(url: url))
             }
         }
        

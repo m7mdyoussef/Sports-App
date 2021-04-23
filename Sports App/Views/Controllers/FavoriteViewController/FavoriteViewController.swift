@@ -13,10 +13,12 @@ import Reachability
 class FavoriteViewController: UIViewController {
     
     var selectedLeagues : Int?
-    @IBOutlet weak var tableView: UITableView!
     let reachability = try! Reachability()
     var presenter: FavoriteListPresenter!
     var context: NSManagedObjectContext?
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLable: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,10 @@ class FavoriteViewController: UIViewController {
             presenter.loadFavorite()
             networkNotificationObserver()
         
+//        let league = League(leaguesId:" favorite.favoriteId!", leaguesName: "favorite.favoritName!", leaguesImage: "favorite.favoriteImage!", youtube: "favorite.favoriteYoutubeURL!", sportName: "")
+//        presenter.didTapInsertAction(league: league)
+        
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "favoriteLeagueDetails"{
@@ -40,6 +46,7 @@ class FavoriteViewController: UIViewController {
                 let league = League(leaguesId: favorite.favoriteId!, leaguesName: favorite.favoritName!, leaguesImage: favorite.favoriteImage!, youtube: favorite.favoriteYoutubeURL!, sportName: "")
                 
                 destination.leaguesObject = league
+                destination.hidesBottomBarWhenPushed = true
                 
             }
             
@@ -47,6 +54,7 @@ class FavoriteViewController: UIViewController {
             if let destination = segue.destination as? WebViewController{
                 
                 destination.leaguesWebURl =  self.presenter.favorites[selectedLeagues!].favoriteYoutubeURL ?? ""
+                destination.hidesBottomBarWhenPushed = true
             }
         }
       
@@ -78,10 +86,12 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: FavoriteListPresenterOutput {
     func showEmptyListImage() {
         print(" list not empty")
+        emptyLable.isHidden = true
     }
     
     func hideEmptyListImage() {
         print("empty list")
+        emptyLable.isHidden = false
     }
     
     func upadteFavorite() {
