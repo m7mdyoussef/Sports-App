@@ -10,10 +10,10 @@ import UIKit
 
 class LeagueDetailsViewController: UIViewController {
 
-    var leaguesId: String?
+    var leaguesObject: League?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("LeaguesId \(leaguesId ?? "")")
+        print("LeaguesId \(leaguesObject ?? nil)")
 
         // Do any additional setup after loading the view.
     }

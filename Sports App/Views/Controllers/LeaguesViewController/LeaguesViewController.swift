@@ -32,7 +32,7 @@ class LeaguesViewController: UIViewController{
         if segue.identifier == "leagueDetails"{
             if let destination = segue.destination as? LeagueDetailsViewController{
                 
-                destination.leaguesId =  self.leaguePresenter?.leagues?[selectedLeagues!].leaguesId ?? ""
+                destination.leaguesObject =  self.leaguePresenter?.leagues?[selectedLeagues!]
             }
             
         }else if segue.identifier == "webView"{

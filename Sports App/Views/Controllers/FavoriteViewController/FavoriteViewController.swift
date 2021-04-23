@@ -44,7 +44,12 @@ class FavoriteViewController: UIViewController {
         if segue.identifier == "favoriteLeagueDetails"{
             if let destination = segue.destination as? LeagueDetailsViewController{
                 
-                destination.leaguesId =  self.presenter.favorites[selectedLeagues!].favoriteId ?? ""
+                let favorite = self.presenter.favorites[selectedLeagues!]
+                
+                let league = League(leaguesId: favorite.favoriteId!, leaguesName: favorite.favoritName!, leaguesImage: favorite.favoriteImage!, youtube: favorite.favoriteYoutubeURL!, sportName: "")
+                
+                destination.leaguesObject = league
+                
             }
             
         }else if segue.identifier == "favoriteWebView"{
