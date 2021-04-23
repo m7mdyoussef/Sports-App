@@ -29,9 +29,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vP4-TU-lwR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="h5l-yS-jlH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilteredLeagueCell" rowHeight="111" id="zRK-jb-17O" customClass="FilteredLeagueViewTableViewCell" customModule="Sports_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="111"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zRK-jb-17O" id="Tio-6i-Fi2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
@@ -109,6 +114,7 @@
                     <navigationItem key="navigationItem" id="qc3-zO-K22"/>
                     <connections>
                         <outlet property="leaguesTableView" destination="vP4-TU-lwR" id="GBQ-Y4-lFG"/>
+                        <outlet property="searchBar" destination="h5l-yS-jlH" id="IH6-ir-V4S"/>
                         <segue destination="NCz-wa-g6E" kind="show" identifier="leagueDetails" id="jsM-Yy-2Q7"/>
                         <segue destination="IX7-QG-yH2" kind="show" identifier="webView" id="fUZ-iz-p3q"/>
                     </connections>

@@ -18,7 +18,13 @@ class LeaguesPresenter: ILeaguesPresenter {
             view?.stopAnimating()
         }
     }
-    
+    var filtireData: [League]?{
+        didSet{
+            //self.view?.reloadLeague()
+            ///view?.stopAnimating()
+            print("filter data")
+        }
+    }
     var error: String?{
         didSet{
             self.view?.errorMessage()
@@ -47,6 +53,7 @@ class LeaguesPresenter: ILeaguesPresenter {
             
             if data.leagues != nil{
                 self.leagues = data.leagues
+                self.filtireData = data.leagues
             }
 
             

@@ -8,22 +8,27 @@
 
 import UIKit
 
-class LeaguesViewController: UIViewController{
+class LeaguesViewController: UIViewController, UISearchBarDelegate{
 
     var sport : String?
     var leaguePresenter : LeaguesPresenter?
     var activityIndicator: UIActivityIndicatorView!
     var selectedLeagues : Int?
+    //var filterData : [League]?
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var leaguesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchBar.delegate = self
         activityIndicator = UIActivityIndicatorView(style: .large)
         
         leaguePresenter = LeaguesPresenter(view: self, sportName: sport)
         leaguePresenter?.getLeagues()
+        
+        //filterData = leaguePresenter?.leagues
         
     }
 
@@ -32,13 +37,13 @@ class LeaguesViewController: UIViewController{
         if segue.identifier == "leagueDetails"{
             if let destination = segue.destination as? LeagueDetailsViewController{
                 
-                destination.leaguesId =  self.leaguePresenter?.leagues?[selectedLeagues!].leaguesId ?? ""
+                destination.leaguesId =  self.leaguePresenter?.filtireData?[selectedLeagues!].leaguesId ?? ""
             }
             
         }else if segue.identifier == "webView"{
             if let destination = segue.destination as? WebViewController{
                 
-                destination.leaguesWebURl =  self.leaguePresenter?.leagues?[selectedLeagues!].youtube ?? ""
+                destination.leaguesWebURl =  self.leaguePresenter?.filtireData?[selectedLeagues!].youtube ?? ""
             }
         }
       

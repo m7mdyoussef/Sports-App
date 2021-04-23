@@ -20,9 +20,12 @@ class WebViewController: UIViewController {
         print(leaguesWebURl)
 
         // Do any additional setup after loading the view.
-        let scheme = "https://"
-        let url = URL(string: scheme+leaguesWebURl)!
-        webView.load(URLRequest(url: url))
+        if leaguesWebURl != ""{
+            let scheme = "https://"
+            let url = URL(string: scheme+leaguesWebURl)!
+            webView.load(URLRequest(url: url))
+        }
+       
     }
 
 

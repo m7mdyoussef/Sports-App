@@ -17,7 +17,7 @@ extension LeaguesViewController: UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaguePresenter?.leagues?.count ?? 0
+        return leaguePresenter?.filtireData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,12 +25,12 @@ extension LeaguesViewController: UITableViewDelegate ,UITableViewDataSource {
         print("inside cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilteredLeagueCell", for: indexPath) as! FilteredLeagueViewTableViewCell
         
-        cell.filteredLeagueName.text = leaguePresenter?.leagues?[indexPath.row].leaguesName
+        cell.filteredLeagueName.text = leaguePresenter?.filtireData?[indexPath.row].leaguesName
         
         
-        cell.filteredLeagueImage.sd_setImage(with: URL(string: leaguePresenter?.leagues?[indexPath.row].leaguesImage ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
+        cell.filteredLeagueImage.sd_setImage(with: URL(string: leaguePresenter?.filtireData?[indexPath.row].leaguesImage ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
 
-        if(leaguePresenter?.leagues?[indexPath.row].youtube != ""){
+        if(leaguePresenter?.filtireData?[indexPath.row].youtube != ""){
             cell.filteredYoutubeImage.isHidden = false
         }
        
