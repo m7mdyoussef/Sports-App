@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
+    
+    var leaguesWebURl: String = ""
 
+    @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(leaguesWebURl)
 
         // Do any additional setup after loading the view.
+        if leaguesWebURl != ""{
+            let scheme = "https://"
+            let url = URL(string: scheme+leaguesWebURl)!
+            webView.load(URLRequest(url: url))
+        }
+       
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

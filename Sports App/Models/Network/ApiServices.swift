@@ -16,7 +16,7 @@ class ApiServices{
     
 
     func getResponses<T: Decodable>(url: String, id: String = "" ,completion: @escaping(T?, Error?) ->Void){
-        let parameters: Parameters = ["id": Int(id) ?? ""]
+        let parameters: Parameters = ["id": Int(id) ?? "", "s": id]
 
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
             guard let responseData = response.data else{
@@ -26,8 +26,11 @@ class ApiServices{
             do{
                 let decoder = JSONDecoder()
                 let data = try decoder.decode(T.self, from: responseData)
+            
                 completion(data, nil)
+
             }catch{
+                print("onFailure")
                 completion(nil, error)
             }
         }

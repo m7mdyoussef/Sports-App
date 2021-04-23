@@ -8,25 +8,61 @@
 
 import UIKit
 
-class LeaguesViewController: UIViewController {
+class LeaguesViewController: UIViewController, UISearchBarDelegate{
 
     var sport : String?
+    var leaguePresenter : LeaguesPresenter?
+    var selectedLeagues : Int?
+    var indicator : ShowIndecator?
+ 
+    
+   
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var leaguesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        searchBar.delegate = self
+        indicator = ShowIndecator(view: self.view)
+        
+        leaguePresenter = LeaguesPresenter(view: self, sportName: sport)
+        leaguePresenter?.getLeagues()
+        
+        
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "leagueDetails"{
+            if let destination = segue.destination as? LeagueDetailsViewController{
+                
+                destination.leaguesId =  self.leaguePresenter?.filtireData?[selectedLeagues!].leaguesId ?? ""
+            }
+            
+        }else if segue.identifier == "webView"{
+            if let destination = segue.destination as? WebViewController{
+                destination.leaguesWebURl =  self.leaguePresenter?.filtireData?[selectedLeagues!].youtube ?? ""
+                
+            }
+        }
+      
+    }
+
+    func showErreorMessage() {
+        
+        let alert = UIAlertController(title: "Error", message: leaguePresenter?.error, preferredStyle: .alert)
+        
+        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            
+            
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
