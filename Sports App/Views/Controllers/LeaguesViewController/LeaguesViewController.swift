@@ -42,8 +42,10 @@ class LeaguesViewController: UIViewController, UISearchBarDelegate{
             
         }else if segue.identifier == "webView"{
             if let destination = segue.destination as? WebViewController{
+                print(self.leaguePresenter?.filtireData?[selectedLeagues!].youtube)
                 
                 destination.leaguesWebURl =  self.leaguePresenter?.filtireData?[selectedLeagues!].youtube ?? ""
+                
             }
         }
       

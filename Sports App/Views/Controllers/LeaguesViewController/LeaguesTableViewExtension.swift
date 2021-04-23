@@ -30,8 +30,11 @@ extension LeaguesViewController: UITableViewDelegate ,UITableViewDataSource {
         
         cell.filteredLeagueImage.sd_setImage(with: URL(string: leaguePresenter?.filtireData?[indexPath.row].leaguesImage ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
 
-        if(leaguePresenter?.filtireData?[indexPath.row].youtube != ""){
+        if(leaguePresenter?.filtireData?[indexPath.row].youtube != "" &&
+            leaguePresenter?.filtireData?[indexPath.row].youtube != nil){
             cell.filteredYoutubeImage.isHidden = false
+        }else{
+            cell.filteredYoutubeImage.isHidden = true
         }
        
         cell.yotubeButton = {
