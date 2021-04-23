@@ -23,7 +23,6 @@ class HomeViewController: UIViewController , SportsView { //// 2.1  1 -> 0
             // collection view delegates
             allSportsCollectionView.delegate = self
             allSportsCollectionView.dataSource = self
-            
         }
     }
     @IBOutlet weak var DesignedBGView: UIView!

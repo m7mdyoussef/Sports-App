@@ -49,32 +49,12 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "deleteObject(leaguesId:)"
-<<<<<<< HEAD
-=======
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6FA57015-50DF-4AE8-B355-2ABA4E573A11"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sports App/Views/Controllers/FavoriteViewController/FavoriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "upadteFavorite()"
->>>>>>> favorite-screen
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-<<<<<<< HEAD
             uuid = "6FA57015-50DF-4AE8-B355-2ABA4E573A11"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -89,8 +69,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-=======
->>>>>>> favorite-screen
             uuid = "0E66357C-87A8-4B3E-833A-D99FECED0328"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
