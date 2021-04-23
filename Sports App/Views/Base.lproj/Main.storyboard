@@ -481,9 +481,16 @@
                                 <rect key="frame" x="16" y="96" width="382" height="717"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <label key="tableHeaderView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there is no favorite data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OYP-2p-gvk">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueViewTableViewCell" rowHeight="111" id="wCI-kn-0sO" customClass="LeagueViewTableViewCell" customModule="Sports_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="111"/>
+                                        <rect key="frame" x="0.0" y="72" width="382" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wCI-kn-0sO" id="h9g-J7-5dh">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="111"/>
@@ -531,6 +538,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="QWH-sw-BSY"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="D1x-ZY-OVt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -538,6 +549,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="2wb-zu-rgL"/>
                     <connections>
+                        <outlet property="emptyLable" destination="OYP-2p-gvk" id="TPc-lt-jtv"/>
+                        <outlet property="tableView" destination="8Y4-SP-IWS" id="YHU-Fb-8lz"/>
                         <segue destination="NCz-wa-g6E" kind="show" identifier="favoriteLeagueDetails" id="qv7-ut-pna"/>
                         <segue destination="IX7-QG-yH2" kind="show" identifier="favoriteWebView" id="lhy-bk-PFA"/>
                     </connections>

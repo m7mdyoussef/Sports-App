@@ -25,6 +25,19 @@ struct League : Codable {
     let sportName : String?
     let leaguesImage : String?
     let youtube: String?
+    
+    
+    init(leaguesId: String, leaguesName: String, leaguesImage:String, youtube: String, sportName: String) {
+        
+        self.leaguesId = leaguesId
+        self.leaguesName = leaguesName
+        self.leaguesImage = leaguesImage
+        self.youtube = youtube
+        self.sportName = sportName
+        
+    }
+
+    
 
     enum CodingKeys: String, CodingKey {
 

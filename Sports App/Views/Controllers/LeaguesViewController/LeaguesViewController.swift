@@ -38,7 +38,7 @@ class LeaguesViewController: UIViewController, UISearchBarDelegate{
         if segue.identifier == "leagueDetails"{
             if let destination = segue.destination as? LeagueDetailsViewController{
                 
-                destination.leaguesId =  self.leaguePresenter?.filtireData?[selectedLeagues!].leaguesId ?? ""
+                destination.leaguesObject =  self.leaguePresenter?.leagues?[selectedLeagues!]
             }
             
         }else if segue.identifier == "webView"{
