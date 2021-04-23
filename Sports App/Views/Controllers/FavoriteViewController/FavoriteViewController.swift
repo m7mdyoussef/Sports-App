@@ -15,17 +15,8 @@ class FavoriteViewController: UIViewController {
     var selectedLeagues : Int?
     @IBOutlet weak var tableView: UITableView!
     let reachability = try! Reachability()
-    
-//    private(set) var presenter: FavoriteistPresenterInput!
-//
-//        func inject(presenter: FavoriteistPresenterInput) {
-//            self.presenter = presenter
-//        }
-    
     var presenter: FavoriteListPresenter!
     var context: NSManagedObjectContext?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +28,7 @@ class FavoriteViewController: UIViewController {
         
             print("favorite view load")
             presenter.loadFavorite()
-//        let league = League(leaguesId: "test1", leaguesName: "test", leaguesImage: "test", youtube:"test", sportName: "")
-//
-//        presenter.didTapInsertAction(league: league)
-        
-        //presenter.deleteObject(leaguesId: "test3")
+            networkNotificationObserver()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,10 +63,27 @@ class FavoriteViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func networkNotificationObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(internetChange(notification:)), name: .reachabilityChanged, object: reachability)
+           do{
+             try reachability.startNotifier()
+           }catch{
+             print("could not start reachability notifier")
+           }
+    }
+    
 
 }
 
 extension FavoriteViewController: FavoriteListPresenterOutput {
+    func showEmptyListImage() {
+        print(" list not empty")
+    }
+    
+    func hideEmptyListImage() {
+        print("empty list")
+    }
+    
     func upadteFavorite() {
         tableView.reloadData()
     }

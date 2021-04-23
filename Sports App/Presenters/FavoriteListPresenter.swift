@@ -15,14 +15,17 @@ protocol FavoriteistPresenterInput {
     func favorite(forRow: Int) -> Favorite?
     func didTapInsertAction(league: League)
     func deleteObject(leaguesId: String)
+ 
 }
 
 protocol FavoriteListPresenterOutput: AnyObject {
     func upadteFavorite()
+    func showEmptyListImage()
+    func hideEmptyListImage()
 }
 
 final class FavoriteListPresenter: FavoriteistPresenterInput {
-   
+
     private(set) var favorites: [Favorite] = []
 
     private weak var view: FavoriteListPresenterOutput!
@@ -63,7 +66,15 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
         model.fetchAllFavorite { [weak self] favorite in
                    self?.favorites = favorite ?? []
                    self?.view.upadteFavorite()
-               }
+            
+                   if ((self?.favorites.count) == nil) {
+                       print("can show data")
+                       self?.view.hideEmptyListImage()
+                   }else{
+                        print("show empty image")
+                       self?.view.showEmptyListImage()
+                   }
+        }
     }
     
     func deleteObject(leaguesId: String) {
@@ -74,5 +85,6 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
                        self?.view.upadteFavorite()
         })
     }
+
 
 }
