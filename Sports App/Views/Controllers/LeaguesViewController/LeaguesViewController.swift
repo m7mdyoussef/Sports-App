@@ -12,9 +12,11 @@ class LeaguesViewController: UIViewController, UISearchBarDelegate{
 
     var sport : String?
     var leaguePresenter : LeaguesPresenter?
-    var activityIndicator: UIActivityIndicatorView!
     var selectedLeagues : Int?
-    //var filterData : [League]?
+    var indicator : ShowIndecator?
+ 
+    
+   
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var leaguesTableView: UITableView!
@@ -23,12 +25,11 @@ class LeaguesViewController: UIViewController, UISearchBarDelegate{
         super.viewDidLoad()
 
         searchBar.delegate = self
-        activityIndicator = UIActivityIndicatorView(style: .large)
+        indicator = ShowIndecator(view: self.view)
         
         leaguePresenter = LeaguesPresenter(view: self, sportName: sport)
         leaguePresenter?.getLeagues()
         
-        //filterData = leaguePresenter?.leagues
         
     }
 
@@ -42,8 +43,6 @@ class LeaguesViewController: UIViewController, UISearchBarDelegate{
             
         }else if segue.identifier == "webView"{
             if let destination = segue.destination as? WebViewController{
-                print(self.leaguePresenter?.filtireData?[selectedLeagues!].youtube)
-                
                 destination.leaguesWebURl =  self.leaguePresenter?.filtireData?[selectedLeagues!].youtube ?? ""
                 
             }

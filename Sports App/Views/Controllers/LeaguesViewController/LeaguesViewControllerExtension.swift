@@ -20,14 +20,11 @@ extension LeaguesViewController: ILeaguesView{
     }
     
     func startAnimating() {
-        activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.center = self.leaguesTableView.center
-        self.view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+        indicator?.startAnimating()
     }
     
     func stopAnimating() {
-        activityIndicator.stopAnimating()
+        indicator?.stopAnimating()
     }
     
     func errorMessage() {
