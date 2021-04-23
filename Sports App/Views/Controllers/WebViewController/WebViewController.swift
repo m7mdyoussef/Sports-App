@@ -22,7 +22,10 @@ class WebViewController: UIViewController {
         // Do any additional setup after loading the view.
         let scheme = "https://"
         let url = URL(string: scheme+leaguesWebURl)!
-        webView.load(URLRequest(url: url))
+        DispatchQueue.main.async {
+            self.webView.load(URLRequest(url: url))
+        }
+        
     }
 
 
