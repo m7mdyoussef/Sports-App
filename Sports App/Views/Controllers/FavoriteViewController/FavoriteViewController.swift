@@ -32,8 +32,6 @@ class FavoriteViewController: UIViewController {
             presenter.loadFavorite()
             networkNotificationObserver()
         
-//        let league = League(leaguesId:" favorite.favoriteId!", leaguesName: "favorite.favoritName!", leaguesImage: "favorite.favoriteImage!", youtube: "favorite.favoriteYoutubeURL!", sportName: "")
-//        presenter.didTapInsertAction(league: league)
         
         
     }
