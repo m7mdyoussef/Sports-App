@@ -65,5 +65,14 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
                    self?.view.upadteFavorite()
                }
     }
+    
+    func deleteObject(leaguesId: String) {
+        print(leaguesId)
+        model.deleteObject(leagueId: leaguesId, completion: {
+            [weak self] favorite in
+                       self?.favorites = favorite ?? []
+                       self?.view.upadteFavorite()
+        })
+    }
 
 }

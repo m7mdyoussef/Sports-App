@@ -54,4 +54,15 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
         //self.selectedLeagues = indexPath.row
         self.performSegue(withIdentifier: "leagueDetails", sender: self)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        print("Deleted")
+
+        if let id = presenter.favorites[indexPath.row].favoriteId{
+            presenter.deleteObject(leaguesId: id)
+        }
+       
+      }
+    }
 }

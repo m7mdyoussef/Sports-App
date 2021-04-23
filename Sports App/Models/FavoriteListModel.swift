@@ -53,7 +53,7 @@ final class FavoriteListModel: FavoriteListModelInput {
         }
     }
     
-    func deleteObject(leagueId: String) {
+    func deleteObject(leagueId: String, completion: @escaping ([Favorite]?) -> ()) {
         let request = NSFetchRequest<Favorite>(entityName: "Favorite")
         
         request.sortDescriptors = [
@@ -62,19 +62,29 @@ final class FavoriteListModel: FavoriteListModelInput {
 
         if let leagues = try? moContext.fetch(request) {
             for item in leagues{
+                print("\(item.favoriteId)\(leagueId)")
                 if item.favoriteId == leagueId{
                     moContext.delete(item)
+                    //completion(leagues)
                 }
             }
+            print("\(leagues)")
+        } else {
+            print("fail")
+            completion(nil)
         }
         
-        if moContext.hasChanges {
+        //if moContext.hasChanges {
             do {
+                print(leagueId)
                 try moContext.save()
+            fetchAllFavorite { favorite in
+               completion(favorite)
+              }
             } catch let error as NSError {
                 print("Core Data Error: \(error), \(error.userInfo)")
             }
-        }
+        //}
        
     }
 }

@@ -36,9 +36,8 @@ class FavoriteViewController: UIViewController {
             print("favorite view load")
             presenter.loadFavorite()
         
-//        let data = League(leaguesId: "test", leaguesName: "test", leaguesImage: "test", youtube: "test", sportName: "test")
-//        
-//        presenter.didTapInsertAction(league: data)
+        
+        //presenter.deleteObject(leaguesId: "test3")
         
     }
     
