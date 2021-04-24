@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dtE-ga-sgJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSe-Da-30Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -783,39 +783,51 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-Qh-yNK">
-                                                            <rect key="frame" x="262" y="10" width="40" height="30"/>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-YZ-em0">
+                                                            <rect key="frame" x="341" y="12.5" width="25" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="JBU-7L-ECj"/>
-                                                                <constraint firstAttribute="width" constant="40" id="zwZ-Vx-5ZB"/>
+                                                                <constraint firstAttribute="height" constant="25" id="gkn-6z-nlb"/>
+                                                                <constraint firstAttribute="width" constant="25" id="tFR-Oq-Yii"/>
                                                             </constraints>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="zfX-Fm-fGA">
-                                                            <rect key="frame" x="318" y="10" width="40" height="30"/>
+                                                            <state key="normal" title="Insta" image="instagram"/>
+                                                            <connections>
+                                                                <action selector="instaButtonClicked:" destination="CSe-Da-30Y" eventType="touchUpInside" id="pKl-zS-0zB"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvb-Vg-h2z">
+                                                            <rect key="frame" x="300" y="13.5" width="25" height="23"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="Hxy-Vx-aDa"/>
-                                                                <constraint firstAttribute="width" constant="40" id="elC-bg-Rkr"/>
+                                                                <constraint firstAttribute="width" constant="25" id="3ao-qd-Do9"/>
+                                                                <constraint firstAttribute="height" constant="23" id="l28-cE-XNw"/>
                                                             </constraints>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="Wjd-sS-N2p">
-                                                            <rect key="frame" x="206" y="10" width="40" height="30"/>
+                                                            <state key="normal" title="twitter" image="twitter"/>
+                                                            <connections>
+                                                                <action selector="twitterButtonClicked:" destination="CSe-Da-30Y" eventType="touchUpInside" id="SHR-ST-4fM"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ax-1s-WXd">
+                                                            <rect key="frame" x="259" y="12.5" width="25" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="X2C-bX-NEU"/>
-                                                                <constraint firstAttribute="width" constant="40" id="zKZ-qO-kI1"/>
+                                                                <constraint firstAttribute="width" constant="25" id="1DV-HA-DdX"/>
+                                                                <constraint firstAttribute="height" constant="25" id="9rP-3j-i72"/>
                                                             </constraints>
-                                                        </imageView>
+                                                            <state key="normal" title="facebook"/>
+                                                            <connections>
+                                                                <action selector="facebookButtonClicked:" destination="CSe-Da-30Y" eventType="touchUpInside" id="GkV-cJ-Eax"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Ptm-Qh-yNK" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="4wa-fH-d36"/>
-                                                        <constraint firstItem="Wjd-sS-N2p" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="9El-x3-Wcv"/>
+                                                        <constraint firstItem="Tvb-Vg-h2z" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="3l2-yz-1Ea"/>
+                                                        <constraint firstItem="2ax-1s-WXd" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="8KQ-VV-q0w"/>
                                                         <constraint firstItem="DqY-c6-6h3" firstAttribute="leading" secondItem="SsG-6n-m4x" secondAttribute="leading" constant="16" id="HT8-L7-jUC"/>
+                                                        <constraint firstItem="Q1o-YZ-em0" firstAttribute="leading" secondItem="Tvb-Vg-h2z" secondAttribute="trailing" constant="16" id="I2n-8n-TIu"/>
+                                                        <constraint firstItem="Q1o-YZ-em0" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="Nm6-En-27l"/>
+                                                        <constraint firstItem="Tvb-Vg-h2z" firstAttribute="leading" secondItem="2ax-1s-WXd" secondAttribute="trailing" constant="16" id="PfG-KX-d9E"/>
                                                         <constraint firstAttribute="height" constant="50" id="PrY-ZT-BQx"/>
                                                         <constraint firstItem="DqY-c6-6h3" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="Zli-VC-NBl"/>
-                                                        <constraint firstAttribute="trailing" secondItem="zfX-Fm-fGA" secondAttribute="trailing" constant="16" id="fzu-Uv-e5g"/>
-                                                        <constraint firstItem="zfX-Fm-fGA" firstAttribute="centerY" secondItem="SsG-6n-m4x" secondAttribute="centerY" id="mYV-8s-YFp"/>
-                                                        <constraint firstItem="zfX-Fm-fGA" firstAttribute="leading" secondItem="Ptm-Qh-yNK" secondAttribute="trailing" constant="16" id="rnf-zm-bJx"/>
-                                                        <constraint firstItem="Ptm-Qh-yNK" firstAttribute="leading" secondItem="Wjd-sS-N2p" secondAttribute="trailing" constant="16" id="sBT-nk-NF4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Q1o-YZ-em0" secondAttribute="trailing" constant="8" id="bhX-gm-QAs"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e50-36-vbI">
@@ -919,6 +931,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jnd-Ya-tU3"/>
+                    <connections>
+                        <outlet property="badgeImage" destination="gB5-0o-Oh5" id="Hth-7Y-0uf"/>
+                        <outlet property="countryImage" destination="elA-ul-3in" id="jdr-UZ-b6Q"/>
+                        <outlet property="discriptionLabel" destination="i9g-c9-vV9" id="SGh-ay-Xdm"/>
+                        <outlet property="leaguesLabel" destination="5Ud-Y2-6aW" id="53e-4a-ZJc"/>
+                        <outlet property="stadiumImage" destination="BFt-m3-fd2" id="Hg3-P0-jIV"/>
+                        <outlet property="stadiumLabel" destination="znQ-bo-MKP" id="lMU-SK-ctv"/>
+                        <outlet property="teamNameLabel" destination="ECJ-Nz-DBK" id="dtA-lL-X0n"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLu-cs-ia6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -970,7 +991,6 @@
         <segue reference="jsM-Yy-2Q7"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="facebook" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart2" width="18" height="17"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
