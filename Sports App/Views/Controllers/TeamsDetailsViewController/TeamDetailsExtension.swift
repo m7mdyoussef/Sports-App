@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import YKPhotoCircleCrop
 
 extension TeamsDetailsTableViewController : ITeamView{
     
@@ -19,9 +20,19 @@ extension TeamsDetailsTableViewController : ITeamView{
             self.stadiumLabel.text = self.teamPresenter?.teams?[0].stadium
             self.leaguesLabel.text = self.teamPresenter?.teams?[0].leaguesName
              self.discriptionLabel.text = self.teamPresenter?.teams?[0].description
+            
             self.badgeImage.sd_setImage(with: URL(string: self.teamPresenter?.teams?[0].badge ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
             
-            self.stadiumImage.sd_setImage(with: URL(string: self.teamPresenter?.teams?[0].badge ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
+//            let circleCropController = YKCircleCropViewController()
+//            circleCropController.image = UIImage(named: self.badgeImage.sd_setImage(with: URL(string: self.teamPresenter?.teams?[0].badge ?? ""), placeholderImage: UIImage(named: "placeHolder.png")))!
+            //circleCropController.delegate = self
+//            self.present(circleCropController, animated: true, completion: nil)
+            
+            self.stadiumImage.sd_setImage(with: URL(string: self.teamPresenter?.teams?[0].stadiumImage ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
+            
+            self.teamView.isHidden = false
+            
+            self.checkSocialMedia()
             
            
         })

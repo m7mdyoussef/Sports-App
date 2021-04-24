@@ -22,7 +22,10 @@ class TeamsDetailsTableViewController: UITableViewController {
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var countryImage: UILabel!
     
+    @IBOutlet weak var twitterButton: UIButton!
     
+    @IBOutlet weak var instaButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     var teamId : String?
     var teamPresenter : TeamDetailsPresenter?
     var indicator : ShowIndecator?
@@ -33,18 +36,23 @@ class TeamsDetailsTableViewController: UITableViewController {
         indicator = ShowIndecator(view: self.view)
         teamPresenter = TeamDetailsPresenter(view: self, teamId: teamId)
         teamPresenter?.getTeams()
+        badgeImage.makeRounded()
         
     }
 
+    @IBOutlet weak var teamView: UIView!
     
     @IBAction func instaButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "instagram", sender: self)
     }
     
     @IBAction func facebookButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "facebook", sender: self)
     }
     
     
     @IBAction func twitterButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "twitter", sender: self)
     }
     
     func showErreorMessage() {
@@ -60,3 +68,5 @@ class TeamsDetailsTableViewController: UITableViewController {
         
     }
 }
+
+

@@ -37,7 +37,7 @@ class TeamDetailsPresenter: ITeamPresenter {
     func getTeams() {
         view?.startAnimating()
         
-        ApiServices.instance.getResponses(url: URLs.teamDetails.rawValue, id: "133604" ?? "133604") { (data: TeamsDetails?, errorMessage) in
+        ApiServices.instance.getResponses(url: URLs.teamDetails.rawValue, id: teamId ?? "133604") { (data: TeamsDetails?, errorMessage) in
                     
             guard let data = data, errorMessage == nil else{
                 print("error")
