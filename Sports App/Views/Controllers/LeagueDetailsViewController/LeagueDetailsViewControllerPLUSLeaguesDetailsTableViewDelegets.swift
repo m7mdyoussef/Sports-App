@@ -96,8 +96,7 @@ extension LeagueDetailsViewController : UITableViewDelegate, UITableViewDataSour
             cell.leagueEventsDetails = leaguesDetailsPresenter!.leagueEventsDetails
             cell.homeTeamDetails = leaguesDetailsPresenter!.homeTeamDetails
             cell.awayTeamDetails = leaguesDetailsPresenter!.awayTeamDetails
-            
-            //cell.awayTeamDetails = leaguesDetailsPresenter?.teamDetails
+        
             
             return cell
             
@@ -142,6 +141,7 @@ extension LeagueDetailsViewController : UITableViewDelegate, UITableViewDataSour
 
         if segue.identifier == "teamDetails"{
             destination!.team = leaguesDetailsPresenter?.leagueTeamsDetails[self.indexPath!]
+            print("\(String(describing: leaguesDetailsPresenter?.leagueTeamsDetails[self.indexPath!]))")
         }
     }
     

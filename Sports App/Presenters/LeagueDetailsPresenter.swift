@@ -109,12 +109,13 @@ class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
     
     
    
-    
+// 1- leagueEventsDetails = [Event] ->"intRound": "33" ,"idHomeTeam": "133604","idAwayTeam": "133615"
+        
     func getEventsData(apiURL: String, id: String) {
                 
         view?.startAnimating()
         //leaguesDetailsPresenter?.getEventsData(apiURL: ApiURLs.leagueEvents.rawValue, id: leagueID ?? "")
-        //leagueEvents = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id="
+        //leagueEvents = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328"
 
         ApiServices.instance.getResponses(url: apiURL, id: id) { (data: EventsModel?, error) in
             
@@ -125,6 +126,8 @@ class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
             self.leagueEventsDetails = eventData.events!
         }
     }
+    
+    
  
     func getTeamsData(apiURL: String, id: String) {
         
