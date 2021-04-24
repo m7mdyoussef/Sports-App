@@ -481,7 +481,7 @@
                                 <rect key="frame" x="16" y="96" width="382" height="717"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <label key="tableHeaderView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there is no favorite data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OYP-2p-gvk">
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there is no favorite data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OYP-2p-gvk">
                                     <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1013,8 +1013,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LDQ-Ti-yBZ"/>
-        <segue reference="jsM-Yy-2Q7"/>
+        <segue reference="lhy-bk-PFA"/>
+        <segue reference="qv7-ut-pna"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="facebook" width="128" height="128"/>

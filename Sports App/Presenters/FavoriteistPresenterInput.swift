@@ -51,6 +51,9 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
         model.fetchAllFavorite { [weak self] favorites in
             self?.favorites = favorites ?? []
             
+            if favorites?.count ?? 0 > 0{
+                self?.view.showEmptyListImage()
+            }
             self?.view.upadteFavorite()
         }
     }
@@ -59,6 +62,10 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
     func loadFavorite() {
         model.fetchAllFavorite { [weak self] favorite in
                    self?.favorites = favorite ?? []
+            
+            if favorite?.count ?? 0 > 0{
+                self?.view.showEmptyListImage()
+            }
             
                    self?.view.upadteFavorite()
         }
