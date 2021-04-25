@@ -141,6 +141,7 @@ extension LeagueDetailsViewController : UITableViewDelegate, UITableViewDataSour
         let destination = segue.destination as? TeamsDetailsTableViewController
 
         if segue.identifier == "teamDetails"{
+            print("TeamId: \(leaguesDetailsPresenter?.leagueTeamsDetails[self.indexPath!].idTeam)")
             destination!.team = leaguesDetailsPresenter?.leagueTeamsDetails[self.indexPath!]
         }
     }

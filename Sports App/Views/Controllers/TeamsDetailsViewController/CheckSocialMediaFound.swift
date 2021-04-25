@@ -12,21 +12,21 @@ import Foundation
 extension TeamsDetailsTableViewController {
 
     func checkSocialMedia() {
-        if let facebookURL = teamPresenter?.teams?[0].facebook {
+        if let facebookURL = team?.strFacebook {
             if( facebookURL != ""){
                 self.facebookButton.isHidden = false
             }
             
         }
         
-        if let instagramURL = teamPresenter?.teams?[0].instagram {
+        if let instagramURL = team?.strInstagram{
             if( instagramURL != ""){
                 self.instaButton.isHidden = false
             }
             
         }
         
-        if let twitterURL = teamPresenter?.teams?[0].twitter {
+        if let twitterURL = team?.strTwitter {
             if( twitterURL != ""){
                 self.twitterButton.isHidden = false
             }

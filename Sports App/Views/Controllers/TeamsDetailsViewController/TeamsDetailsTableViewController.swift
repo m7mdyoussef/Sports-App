@@ -26,17 +26,14 @@ class TeamsDetailsTableViewController: UITableViewController {
     
     @IBOutlet weak var instaButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
-    var teamId : String?
-    var teamPresenter : TeamDetailsPresenter?
-    var indicator : ShowIndecator?
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        indicator = ShowIndecator(view: self.view)
-        teamPresenter = TeamDetailsPresenter(view: self, teamId: teamId)
-        teamPresenter?.getTeams()
+       
         badgeImage.makeRounded()
+        self.reloadTeams()
         
     }
 
@@ -54,19 +51,7 @@ class TeamsDetailsTableViewController: UITableViewController {
     @IBAction func twitterButtonClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "twitter", sender: self)
     }
-    
-    func showErreorMessage() {
-        
-        let alert = UIAlertController(title: "Error", message: teamPresenter?.error, preferredStyle: .alert)
-        
-        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-            
-            
-        }
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
 }
 
 

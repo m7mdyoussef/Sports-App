@@ -17,17 +17,17 @@ extension TeamsDetailsTableViewController{
             
             if let destination = segue.destination as? WebViewController{
                 
-                destination.leaguesWebURl = self.teamPresenter?.teams?[0].facebook  ?? ""
+                destination.leaguesWebURl = self.team?.strFacebook  ?? ""
             }
             
         }else if segue.identifier == "instagram"{
             if let destination = segue.destination as? WebViewController{
-                destination.leaguesWebURl =  self.teamPresenter?.teams?[0].instagram ?? ""
+                destination.leaguesWebURl =  self.team?.strInstagram ?? ""
                 
             }
         }else if segue.identifier == "twitter"{
             if let destination = segue.destination as? WebViewController{
-                destination.leaguesWebURl =  self.teamPresenter?.teams?[0].twitter ?? ""
+                destination.leaguesWebURl =  self.team?.strTwitter ?? ""
                 
             }
         }
