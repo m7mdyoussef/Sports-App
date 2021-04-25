@@ -10,7 +10,7 @@ import UIKit
 
 class TeamsDetailsTableViewController: UITableViewController {
 
-    
+    var team :Team?
 
     @IBOutlet weak var stadiumImage: UIImageView!
     @IBOutlet weak var badgeImage: UIImageView!
