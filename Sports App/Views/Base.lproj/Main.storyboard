@@ -398,7 +398,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gej-lR-fN1">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gej-lR-fN1">
                                                     <rect key="frame" x="36.000000000000007" y="323" width="103.66666666666669" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -594,6 +594,7 @@
                         <outlet property="leaguesLabel" destination="5Ud-Y2-6aW" id="53e-4a-ZJc"/>
                         <outlet property="stadiumImage" destination="BFt-m3-fd2" id="Hg3-P0-jIV"/>
                         <outlet property="stadiumLabel" destination="znQ-bo-MKP" id="lMU-SK-ctv"/>
+                        <outlet property="stadiumText" destination="gej-lR-fN1" id="uye-z9-53j"/>
                         <outlet property="teamNameLabel" destination="ECJ-Nz-DBK" id="dtA-lL-X0n"/>
                         <outlet property="teamView" destination="khy-Th-MFM" id="24h-Qs-0tC"/>
                         <outlet property="twitterButton" destination="Tvb-Vg-h2z" id="JVA-gK-WfU"/>

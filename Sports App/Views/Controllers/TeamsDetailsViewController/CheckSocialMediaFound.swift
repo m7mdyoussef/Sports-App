@@ -32,6 +32,12 @@ extension TeamsDetailsTableViewController {
             }
             
         }
+        
+        if let stadium = team?.strStadium {
+            if( stadium != ""){
+                self.stadiumText.isHidden = false
+            }
+        }
        
 
     

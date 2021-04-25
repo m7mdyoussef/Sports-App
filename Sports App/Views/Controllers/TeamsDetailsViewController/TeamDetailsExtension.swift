@@ -28,7 +28,7 @@ extension TeamsDetailsTableViewController{
             //circleCropController.delegate = self
 //            self.present(circleCropController, animated: true, completion: nil)
             
-            self.stadiumImage.sd_setImage(with: URL(string: self.team?.strStadiumThumb ?? ""), placeholderImage: UIImage(named: "placeHolder.png"))
+            self.stadiumImage.sd_setImage(with: URL(string: self.team?.strStadiumThumb ?? ""), placeholderImage: UIImage(named: "stadium.jpg"))
             
             self.teamView.isHidden = false
             

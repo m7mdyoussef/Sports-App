@@ -12,6 +12,7 @@
 		1E007BCE263111E8002E8A24 /* LeaguesViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E007BCD263111E8002E8A24 /* LeaguesViewControllerExtension.swift */; };
 		1E007BD52631127B002E8A24 /* LeaguesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E007BD42631127B002E8A24 /* LeaguesProtocol.swift */; };
 		1E18D0DA2632EDF2001E8136 /* SearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18D0D92632EDF2001E8136 /* SearchBarExtension.swift */; };
+		1E3BCFA32635CA0300F93FB0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3BCFA22635CA0300F93FB0 /* WebKit.framework */; };
 		1E4FF5C926345AB200DF9815 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF5C826345AB200DF9815 /* RoundedImage.swift */; };
 		1E4FF5D126345B0F00DF9815 /* CheckSocialMediaFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF5D026345B0F00DF9815 /* CheckSocialMediaFound.swift */; };
 		1E4FF5D62634605400DF9815 /* NavigateMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF5D52634605400DF9815 /* NavigateMethod.swift */; };
@@ -86,6 +87,7 @@
 		1E007BCD263111E8002E8A24 /* LeaguesViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewControllerExtension.swift; sourceTree = "<group>"; };
 		1E007BD42631127B002E8A24 /* LeaguesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesProtocol.swift; sourceTree = "<group>"; };
 		1E18D0D92632EDF2001E8136 /* SearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarExtension.swift; sourceTree = "<group>"; };
+		1E3BCFA22635CA0300F93FB0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1E4FF5C826345AB200DF9815 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		1E4FF5D026345B0F00DF9815 /* CheckSocialMediaFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSocialMediaFound.swift; sourceTree = "<group>"; };
 		1E4FF5D52634605400DF9815 /* NavigateMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateMethod.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E3BCFA32635CA0300F93FB0 /* WebKit.framework in Frameworks */,
 				8100FB03C4AB552E964D4821 /* Pods_Sports_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +209,7 @@
 		4F2F71288A2205A8AFF0DB97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E3BCFA22635CA0300F93FB0 /* WebKit.framework */,
 				779B6B133DD4190A42C44B37 /* Pods_Sports_App.framework */,
 				666BF50267DB7F45ECFC5BE1 /* Pods_Sports_App_Sports_AppUITests.framework */,
 				1CEC70E400C986BE502719DC /* Pods_Sports_AppTests.framework */,

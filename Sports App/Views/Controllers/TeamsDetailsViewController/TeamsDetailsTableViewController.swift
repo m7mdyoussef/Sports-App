@@ -28,6 +28,7 @@ class TeamsDetailsTableViewController: UITableViewController {
     @IBOutlet weak var facebookButton: UIButton!
 
 
+    @IBOutlet weak var stadiumText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
