@@ -20,17 +20,21 @@ class LeagueDetailsViewController: UIViewController, LeagueDetailsView {
     var leagueYoutubeLink : String?
     var leagueImage : String?
     
-   // let delegate = (UIApplication.shared.delegate as! AppDelegate)
     
     var indicator : ShowIndecator?
+    
+    var context: NSManagedObjectContext?
     
     @IBOutlet weak var leagueDetailsTableView: UITableView!
     @IBOutlet weak var favoriteBtn: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
                
-        leaguesDetailsPresenter = LeagueDetailsPresenter(view: self)
+               context = appDelegate.persistentContainer.viewContext
+               
+        leaguesDetailsPresenter = LeagueDetailsPresenter(view: self, context: context!)
         
         leaguesDetailsPresenter?.getEventsData(apiURL: URLs.leagueEvents.rawValue, id: leaguesObject?.leaguesId ?? "")
         leaguesDetailsPresenter?.getTeamsData(apiURL: URLs.leagueTeams.rawValue, id: leaguesObject?.leaguesId ?? "")
@@ -71,12 +75,15 @@ class LeagueDetailsViewController: UIViewController, LeagueDetailsView {
         if favoriteBtn.tintColor == UIColor.gray{
             
             favoriteBtn.tintColor = UIColor.red
-            leaguesDetailsPresenter?.saveLeagueToCoreData(leagueID: leaguesObject?.leaguesId ?? "", leagueName: leaguesObject?.leaguesName ?? "", leagueYoutubeLink: leaguesObject?.youtube ?? "", leagueImage: leaguesObject?.leaguesImage ?? "")
+            if let leguesObject = leaguesObject {
+                leaguesDetailsPresenter?.didTapInsertAction(league: leguesObject)
+            }
+            
             
         }else{
             
             favoriteBtn.tintColor = UIColor.gray
-            leaguesDetailsPresenter?.deleteLeaguefromCoreData(leagueID: leaguesObject?.leaguesId ?? "")
+            leaguesDetailsPresenter?.deleteObject(leaguesId: leaguesObject?.leaguesId ?? "")
             
         }
     }

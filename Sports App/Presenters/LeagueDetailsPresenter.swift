@@ -16,22 +16,27 @@ protocol LeagueDetailsView: class {
 }
 
 protocol LeagueDetailsViewPresenter {
-    init(view: LeagueDetailsView)
+    init(view: LeagueDetailsView, context: NSManagedObjectContext)
     func getEventsData(apiURL: String, id: String)
     func getTeamsData(apiURL: String, id: String)
-    func saveLeagueToCoreData(leagueID: String, leagueName: String, leagueYoutubeLink: String, leagueImage: String)
-    func deleteLeaguefromCoreData(leagueID: String)
+    //func saveLeagueToCoreData(leagueID: String, leagueName: String, leagueYoutubeLink: String, leagueImage: String)
+    //func deleteLeaguefromCoreData(leagueID: String)
 }
 
-class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
-
+class LeagueDetailsPresenter : LeagueDetailsViewPresenter, FavoriteistPresenterInput{
+    
+    var numberOfFavorite: Int{
+        fetchedLeaguesArray.count
+    }
+    
    // A group of blocks submitted to queues for asynchronous invocation.
     let dispatchGroup = DispatchGroup()
     weak var view : LeagueDetailsView?
+    var model: FavoriteListModel
     
     // favorite
-    var favoriteLeague = NSManagedObject()
-    var fetchedLeaguesArray = [NSManagedObject](){
+    //var favoriteLeague = NSManagedObject()
+    var fetchedLeaguesArray = [Favorite](){
     didSet{
         self.view?.reloadData()
     }
@@ -54,8 +59,9 @@ class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
         }
     }
     
-    required init(view: LeagueDetailsView) {
+    required init(view: LeagueDetailsView, context: NSManagedObjectContext) {
         self.view = view
+        self.model = FavoriteListModel(moContext: context)
     }
     
     var leagueEventsDetails = [Event](){
@@ -147,25 +153,37 @@ class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
     
     
     // coreData
-    func saveLeagueToCoreData(leagueID: String, leagueName: String, leagueYoutubeLink: String, leagueImage: String){
-        
-
+    func loadFavorite() {
+        model.fetchAllFavorite { [weak self] favorite in
+                   self?.fetchedLeaguesArray = favorite ?? []
+        }
+    }
+    func favorite(forRow row: Int) -> Favorite? {
+        guard row < fetchedLeaguesArray.count else { return nil }
+               return fetchedLeaguesArray[row]
     }
     
-    func fetchLeaguefromCoreData(){
-
-      }
-    
-    func deleteLeaguefromCoreData(leagueID: String){
-        
-       fetchLeaguefromCoreData()
-
+    func didTapInsertAction(league: League) {
+        model.insertFavorite(league: league)
+        model.fetchAllFavorite { [weak self] favorites in
+            self?.fetchedLeaguesArray = favorites ?? []
+        }
     }
+    
+    func deleteObject(leaguesId: String) {
+        print(leaguesId)
+        model.deleteObject(leagueId: leaguesId, completion: {
+            [weak self] favorite in
+                       self?.fetchedLeaguesArray = favorite ?? []
+        })
+        
+    }
+
     
     
     func isFavoriteLeague(leagueID: String) -> Bool{
 
-        fetchLeaguefromCoreData()
+        loadFavorite()
 
         var isFavorite = false
 
@@ -178,5 +196,6 @@ class LeagueDetailsPresenter : LeagueDetailsViewPresenter{
 
         return isFavorite
     }
+    
     
 }

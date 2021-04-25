@@ -28,13 +28,19 @@ class FavoriteViewController: UIViewController {
                presenter = FavoriteListPresenter(view: self, context: context!)
                
                    print("favorite view load")
-                   presenter.loadFavorite()
+                   
                    networkNotificationObserver()
+        
         
 //        let league = League(leaguesId: "favorite.favoriteId!", leaguesName: "favorite.favoritName!", leaguesImage: "favorite.favoriteImage!", youtube: "favorite.favoriteYoutubeURL!", sportName: "")
 //        presenter.didTapInsertAction(league: league)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.loadFavorite()
+    }
+    
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
