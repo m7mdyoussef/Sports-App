@@ -65,7 +65,10 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
             
             if favorite?.count ?? 0 > 0{
                 self?.view.showEmptyListImage()
-            }
+            }else{
+                print("hide empty image")
+               self?.view.hideEmptyListImage()
+           }
             
                    self?.view.upadteFavorite()
         }
@@ -76,7 +79,7 @@ final class FavoriteListPresenter: FavoriteistPresenterInput {
         model.deleteObject(leagueId: leaguesId, completion: {
             [weak self] favorite in
                        self?.favorites = favorite ?? []
-            if ((self?.favorites.count) == nil) {
+            if (favorite?.count ?? 0 > 0) {
                 print("can not show data")
                 self?.view.showEmptyListImage()
             }else{

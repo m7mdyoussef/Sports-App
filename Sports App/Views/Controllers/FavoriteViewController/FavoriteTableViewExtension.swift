@@ -34,8 +34,9 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
             if(favorite.favoriteYoutubeURL != "" && favorite.favoriteYoutubeURL != nil){
                 cell.youtubeImage.isHidden = false
             }else{
-                cell.youtubeImage.isHidden = false
+                cell.youtubeImage.isHidden = true
             }
+
         }
         
         cell.yotubeButton = {
@@ -49,6 +50,8 @@ extension FavoriteViewController: UITableViewDelegate ,UITableViewDataSource{
            
 
         }
+        
+       
         return cell
     }
     
